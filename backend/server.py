@@ -234,7 +234,7 @@ async def login(user_login: UserLogin):
     return {
         "access_token": access_token,
         "token_type": "bearer",
-        "user": user_data
+        "user": mongo_to_json(user_data)
     }
 
 @app.get("/api/auth/me")
