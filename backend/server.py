@@ -294,7 +294,7 @@ async def get_requests(current_user = Depends(get_current_user)):
             if hospital:
                 request["hospital_name"] = hospital.get("institution_name", request.get("hospital_name", ""))
     
-    return requests
+    return mongo_to_json(requests)
 
 @app.get("/api/requests/{request_id}", response_model=Request)
 async def get_request(request_id: str, current_user = Depends(get_current_user)):
