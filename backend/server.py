@@ -1,15 +1,17 @@
 import os
 import uuid
 from datetime import datetime, timedelta
-from typing import Optional, List
+from typing import Optional, List, Any
 from fastapi import FastAPI, HTTPException, Depends, status
 from fastapi.security import HTTPBearer, HTTPAuthorizationCredentials
 from fastapi.middleware.cors import CORSMiddleware
-from pydantic import BaseModel, EmailStr
+from pydantic import BaseModel, EmailStr, field_serializer
 from pymongo import MongoClient
+from bson import ObjectId
 import jwt
 from passlib.context import CryptContext
 import logging
+import json
 
 # Setup logging
 logging.basicConfig(level=logging.INFO)
