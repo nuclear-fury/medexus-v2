@@ -239,7 +239,7 @@ async def login(user_login: UserLogin):
 
 @app.get("/api/auth/me")
 async def get_current_user_info(current_user = Depends(get_current_user)):
-    return {k: v for k, v in current_user.items() if k != "password_hash"}
+    return mongo_to_json({k: v for k, v in current_user.items() if k != "password_hash"})
 
 # Request endpoints
 @app.post("/api/requests", response_model=Request)
