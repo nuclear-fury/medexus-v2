@@ -44,6 +44,23 @@ ALGORITHM = "HS256"
 ACCESS_TOKEN_EXPIRE_MINUTES = 30 * 24 * 60  # 30 days
 
 pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
+# Custom JSON encoder for MongoDB ObjectId
+class JSONEncoder(json.JSONEncoder):
+    def default(self, o):
+        if isinstance(o, ObjectId):
+            return str(o)
+        return json.JSONEncoder.default(self, o)
+
+# Helper function to convert MongoDB documents to JSON-serializable format
+def mongo_to_json(obj):
+    if isinstance(obj, list):
+        return [mongo_to_json(item) for item in obj]
+    elif isinstance(obj, dict):
+        return {k: mongo_to_json(v) for k, v in obj.items()}
+    elif isinstance(obj, ObjectId):
+        return str(obj)
+    return obj
+
 security = HTTPBearer()
 
 # Pydantic models
