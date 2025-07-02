@@ -319,7 +319,7 @@ async def get_request(request_id: str, current_user = Depends(get_current_user))
                 interested_doctors.append(doctor_info)
         request["interested_doctors"] = interested_doctors
     
-    return request
+    return mongo_to_json(request)
 
 @app.put("/api/requests/{request_id}", response_model=Request)
 async def update_request(request_id: str, request_update: RequestCreate, current_user = Depends(get_current_user)):
