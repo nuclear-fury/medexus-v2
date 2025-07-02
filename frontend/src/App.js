@@ -111,15 +111,21 @@ function App() {
     setError('');
     
     try {
+      console.log('Attempting signup with data:', signupData);
+      
       const response = await apiCall('/api/auth/signup', {
         method: 'POST',
         body: JSON.stringify(signupData)
       });
       
+      console.log('Signup successful:', response);
+      
       localStorage.setItem('token', response.access_token);
       localStorage.setItem('userData', JSON.stringify(response.user));
       setCurrentUser(response.user);
       setCurrentView(response.user.role === 'hospital' ? 'hospital-dashboard' : 'doctor-dashboard');
+      
+      // Reset form
       setSignupData({
         name: '',
         email: '',
@@ -129,7 +135,11 @@ function App() {
         specialization: '',
         bio: ''
       });
+      
+      // Show success message
+      alert(`Welcome to Medexus, ${response.user.name}!`);
     } catch (error) {
+      console.error('Signup error:', error);
       setError(error.message);
     }
   };
