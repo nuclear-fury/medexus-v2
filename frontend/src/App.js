@@ -213,11 +213,14 @@ function App() {
     setError('');
     
     try {
-      await apiCall(`/api/requests/${editingRequest.id}`, {
+      const response = await apiCall(`/api/requests/${editingRequest.id}`, {
         method: 'PUT',
         body: JSON.stringify(requestForm)
       });
       
+      console.log('Request updated successfully:', response);
+      
+      // Reset form and editing state
       setEditingRequest(null);
       setRequestForm({
         surgery_type: '',
@@ -229,9 +232,14 @@ function App() {
         condition_description: ''
       });
       
+      // Refresh requests and redirect
       await fetchRequests();
       setCurrentView('hospital-dashboard');
+      
+      // Show success message
+      alert('Surgery request updated successfully!');
     } catch (error) {
+      console.error('Error updating request:', error);
       setError(error.message);
     }
   };
