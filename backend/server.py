@@ -432,7 +432,7 @@ async def get_my_interests(current_user = Depends(get_current_user)):
                 "request": request_with_hospital
             })
     
-    return result
+    return mongo_to_json(result)
 
 # Seed data endpoint (for development)
 @app.post("/api/seed-data")
