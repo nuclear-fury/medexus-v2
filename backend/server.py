@@ -346,7 +346,7 @@ async def update_request(request_id: str, request_update: RequestCreate, current
     
     requests_collection.update_one({"id": request_id}, {"$set": update_data})
     updated_request = requests_collection.find_one({"id": request_id})
-    return updated_request
+    return mongo_to_json(updated_request)
 
 @app.delete("/api/requests/{request_id}")
 async def delete_request(request_id: str, current_user = Depends(get_current_user)):
