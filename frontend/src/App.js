@@ -91,17 +91,25 @@ function App() {
     setError('');
     
     try {
+      console.log('Attempting login with:', loginData.email);
+      
       const response = await apiCall('/api/auth/login', {
         method: 'POST',
         body: JSON.stringify(loginData)
       });
+      
+      console.log('Login successful:', response.user.name, response.user.role);
       
       localStorage.setItem('token', response.access_token);
       localStorage.setItem('userData', JSON.stringify(response.user));
       setCurrentUser(response.user);
       setCurrentView(response.user.role === 'hospital' ? 'hospital-dashboard' : 'doctor-dashboard');
       setLoginData({ email: '', password: '' });
+      
+      // Show welcome message
+      alert(`Welcome back, ${response.user.name}!`);
     } catch (error) {
+      console.error('Login error:', error);
       setError(error.message);
     }
   };
