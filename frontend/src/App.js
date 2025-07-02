@@ -178,11 +178,14 @@ function App() {
     setError('');
     
     try {
-      await apiCall('/api/requests', {
+      const response = await apiCall('/api/requests', {
         method: 'POST',
         body: JSON.stringify(requestForm)
       });
       
+      console.log('Request created successfully:', response);
+      
+      // Reset form
       setRequestForm({
         surgery_type: '',
         required_specialization: '',
@@ -193,9 +196,14 @@ function App() {
         condition_description: ''
       });
       
+      // Refresh requests and redirect
       await fetchRequests();
       setCurrentView('hospital-dashboard');
+      
+      // Show success message
+      alert('Surgery request created successfully!');
     } catch (error) {
+      console.error('Error creating request:', error);
       setError(error.message);
     }
   };
