@@ -262,7 +262,7 @@ async def create_request(request: RequestCreate, current_user = Depends(get_curr
     }
     
     requests_collection.insert_one(request_doc)
-    return request_doc
+    return mongo_to_json(request_doc)
 
 @app.get("/api/requests", response_model=List[Request])
 async def get_requests(current_user = Depends(get_current_user)):
