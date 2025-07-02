@@ -393,7 +393,7 @@ async def express_interest(interest: InterestCreate, current_user = Depends(get_
     }
     
     interests_collection.insert_one(interest_doc)
-    return interest_doc
+    return mongo_to_json(interest_doc)
 
 @app.delete("/api/interests/{request_id}")
 async def withdraw_interest(request_id: str, current_user = Depends(get_current_user)):
