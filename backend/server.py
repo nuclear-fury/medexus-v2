@@ -210,7 +210,7 @@ async def signup(user: UserCreate):
     return {
         "access_token": access_token,
         "token_type": "bearer",
-        "user": user_data
+        "user": mongo_to_json(user_data)
     }
 
 @app.post("/api/auth/login", response_model=Token)
