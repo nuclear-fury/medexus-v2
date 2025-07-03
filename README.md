@@ -1,11 +1,17 @@
-# Medexus - Connecting Hospitals with Medical Specialists
-A Vibe Coded App
+# Medexus — Connecting Hospitals with Surgeons & Specialists  
+*A Vibe-Coded App Built with Emergent AI*
 
 > A comprehensive medical platform bridging the gap between under-resourced hospitals in Tier-2/3 regions and available medical specialists for surgical assistance.
+
+---
 
 ## 🏥 Overview
 
 Medexus addresses the critical challenge of surgical resource scarcity in smaller hospitals by creating a seamless connection between healthcare institutions and qualified specialists. The platform enables hospitals to post surgery requests and allows doctors to browse and express interest in opportunities where their expertise is needed.
+
+It’s a practical, scalable way to bridge India’s healthcare gap — connecting hospitals in need with doctors ready to help.
+
+---
 
 ## ✨ Features
 
@@ -26,29 +32,78 @@ Medexus addresses the critical challenge of surgical resource scarcity in smalle
 - **Mobile-First Design**: Responsive interface optimized for all devices
 - **Contact Integration**: Direct email contact between hospitals and interested specialists
 
+---
+
 ## 🛠️ Technology Stack
 
-- **Frontend**: React.js with Tailwind CSS for responsive design
+- **Frontend**: React.js with Tailwind CSS
 - **Backend**: FastAPI (Python) with JWT authentication
 - **Database**: MongoDB with UUID-based document management
 - **Security**: Role-based access control and secure API endpoints
 
+---
+
 ## 🚀 Quick Start
 
-### Live Demo
-Access the application at: [Medexus Platform](https://your-demo-url.com)
+### 🔗 Live Demo  
+[Medexus Platform](https://your-demo-url.com)
 
-### Test Accounts
+### 🧪 Test Accounts
 
-**Hospital Login:**
-- Email: `admin@cityhospital.com`
-- Password: `hospital123`
+#### Hospital Accounts (Password: `hospital123`)
+1. **City General Hospital** — `admin@cityhospital.com` (Dr. Sarah Johnson)  
+2. **Valley Medical Center** — `admin@valleymed.com` (Dr. Michael Chen)  
+3. **Regional Health Hospital** — `admin@regionalhospital.com` (Dr. Emily Rodriguez)
 
-**Doctor Login:**
-- Email: `james.wilson@medexus.com`
-- Password: `doctor123`
+#### Doctor Accounts (Password: `doctor123`)
+1. **Dr. James Wilson** — `james.wilson@medexus.com`  
+   - Orthopedic Surgeon | 15+ years in joint & trauma surgery  
+2. **Dr. Lisa Anderson** — `lisa.anderson@medexus.com`  
+   - Cardiologist | Expert in cardiac and interventional surgery  
+3. **Dr. Robert Kumar** — `robert.kumar@medexus.com`  
+   - General Surgeon | Minimally invasive surgery specialist  
+4. **Dr. Maria Garcia** — `maria.garcia@medexus.com`  
+   - Neurologist | Focus on neurosurgery & brain tumor treatment  
+5. **Dr. David Park** — `david.park@medexus.com`  
+   - Orthopedic | Sports medicine and arthroscopic surgeon  
 
-### Local Development
+---
+
+## 🧪 Sample Data
+
+- 3 hospital accounts with different medical institutions  
+- 5 fully profiled doctors across key specializations  
+- Example surgery requests preloaded for demo/test usage  
+
+---
+
+## 🎯 Use Cases
+
+- **Emergency Surgical Support** – Mobilize specialists quickly  
+- **Specialist Discovery** – Hospitals access expertise they normally can’t afford full-time  
+- **Urban-Rural Bridge** – Enable collaboration across cities  
+- **Healthcare Efficiency** – Smarter utilization of surgeon time & talent  
+
+---
+
+## 🔒 Security
+
+- 🔐 JWT-based authentication  
+- 🔐 Role-based access control  
+- 🔐 Secure API endpoints  
+- 🔐 Access-restricted views & routes  
+
+---
+
+## 📱 Mobile Optimization
+
+- Built mobile-first for hospitals with legacy devices  
+- Works seamlessly on both smartphones and desktop  
+- Touch-optimized UI  
+
+---
+
+## 🧑‍💻 Local Development
 
 ```bash
 # Clone the repository
