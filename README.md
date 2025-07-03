@@ -46,7 +46,7 @@ It’s a practical, scalable way to bridge India’s healthcare gap — connecti
 ## 🚀 Quick Start
 
 ### 🔗 Live Demo  
-[Medexus Platform](https://your-demo-url.com)
+[Medexus Platform](https://medbridge.preview.emergentagent.com/)
 
 ### 🧪 Test Accounts
 
